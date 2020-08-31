@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.2.0", "wheel", "setuptools_scm[toml]>=3.4.3", "kaitaiStructCompile[toml]"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lime"
+authors = [{name = "KOLANICH"}]
+description = "Just a library implementing serialization and deserialization from/into LiME/AVML formats."
+readme = "ReadMe.md"
+keywords = ["LiME", "AVML"]
+license = {text = "Unlicense"}
+classifiers = [
+	"Programming Language :: Python",
+	"Programming Language :: Python :: 3",
+	"Development Status :: 4 - Beta",
+	"Environment :: Other Environment",
+	"Intended Audience :: Developers",
+	"License :: Public Domain",
+	"Operating System :: OS Independent",
+	"Topic :: Software Development :: Libraries :: Python Modules",
+]
+urls = {Homepage = "https://codeberg.org/KFmts/lime.py"}
+requires-python = ">=3.4"
+dynamic = ["version"]
+
+[project.optional-dependencies]
+kaitaistruct = ["kaitaistruct", "kaitai.compress"]
+AVML = ["snappy"]
+CLI = ["plumbum"]
+
+[tool.setuptools]
+zip-safe = true
+packages = ["lime", "lime.kaitai"]
+include-package-data = false
+
+[tool.setuptools_scm]
+
+[tool.kaitai.repos."https://codeberg.org/KFmts/kaitai_struct_formats.git"."lime_avml_memory_dump"]
+update = true
+localPath = "kaitai_struct_formats"
+outputDir = "lime/kaitai"
+
+[tool.kaitai.repos."https://codeberg.org/KFmts/kaitai_struct_formats.git"."lime_avml_memory_dump".formats.lime_avml_memory_dump]
+path = "log/lime_avml_memory_dump"
