@@ -6,6 +6,8 @@ from enum import IntEnum
 from io import BytesIO
 from warnings import warn
 
+warn("We have moved from M$ GitHub to https://codeberg.org/KFmts/lime.py , read why on https://codeberg.org/KOLANICH/Fuck-GuanTEEnomo .")
+
 from rangeslicetools.tree import IndexProto, RangesTree
 from rangeslicetools.utils import slen
 
